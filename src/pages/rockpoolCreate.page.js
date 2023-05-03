@@ -23,7 +23,7 @@ const RockpoolCreate = () => {
 
   const { connect, connectors, error, isLoading, pendingConnector } =useConnect()
   let [priceMultiplier, setPriceMultiplier] = useState("1");
-  const { products } = chainConfig(chain.id)
+  const { products } = chainConfig(chain?.id)
 
   let [extra, setExtra] = useState("0x41554354494f4e0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000000003f480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000104d7574616e74204361742023313139340000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054d54434659000000000000000000000000000000000000000000000000000000");
   let [contractAddress, setContractAddress] = useState("");
@@ -56,7 +56,7 @@ const RockpoolCreate = () => {
     }
   }
   let [Collection, setCollection] = useState("");
-  let [tokenId, setTokenId] = useState("");
+  let [tokenId, setTokenId] = useState("0");
   const isMetaMaskInstalled = useCallback(() => {
     const { ethereum } = window;
     return Boolean(ethereum && ethereum.isMetaMask);
@@ -67,7 +67,7 @@ const RockpoolCreate = () => {
  
   const walletChainId = activeChain?.id;
   const fetchData=async(item)=>{
-    const query = "/api/createRockPool"
+    const query = "https://testnet.fra-art.com/api/createRockPool"
     axios.post(query, item).then(res => {
       console.log(res)
   }).catch(err => { })
@@ -116,7 +116,8 @@ console.log(utils.formatBytes32String(type), Collection?.name == null ? Collecti
       "goerli",
       "e5909f511a3f4297b5bfdc84f08dcb45"
       );
-      
+     
+
       const contractErc20Fraction = new ethers.Contract(products.specific.contract.openCollectivePurchase, perpetualOpenCollectivePurchaseAbi, provider);
       setItem(item ={
         amount: 0,
@@ -129,17 +130,18 @@ console.log(utils.formatBytes32String(type), Collection?.name == null ? Collecti
         image: Collection?.image_url,
         owner: address,
         isErc721Available:true,
-        listingId:parseInt(await contractErc20Fraction.listingCount())+ 1,
-        price:(utils.parseEther((Collection?.collection?.stats?.average_price).toString())).toString(),
+        listingId:parseInt(await contractErc20Fraction.listingCount()) - 1,
+        price:(Collection?.collection?.stats?.average_price).toString(),
         status:true,
-        reservePrice: (utils.parseEther((Collection?.collection?.stats?.average_price).toString())).toString(),
-        targetPrice: (utils.parseEther((Collection?.collection?.stats?.average_price).toString())).toString(),
+        reservePrice: (Collection?.collection?.stats?.average_price).toString(),
+        targetPrice: (Collection?.collection?.stats?.average_price).toString(),
         title:Collection?.name == null ? Collection?.asset_contract?.name: Collection?.name,
         progress: 0,
         userParticipation:0
 
       })
     await fetchData(item)
+  
   
  }
 
@@ -228,7 +230,7 @@ console.log(utils.formatBytes32String(type), Collection?.name == null ? Collecti
                     </div>
 
                     <div className="nft-image rounded-md mt-3 position-relative overflow-hidden">
-                      <Link to={`/rockpool/details/${data.id}`}>
+                      <Link to={`/rockpool/details/${data?.id}`}>
                         <img src={data.image} className="img-fluid" alt="" />
                       </Link>
 
@@ -241,7 +243,7 @@ console.log(utils.formatBytes32String(type), Collection?.name == null ? Collecti
 
                     <div className="card-body content position-relative p-0 mt-3">
                       <Link
-                        to={`/rockpool/details/${data.id}`}
+                        to={`/rockpool/details/${data?.id}`}
                         className="title text-dark h6"
                       >
                         {data.title}
