@@ -39,10 +39,23 @@
     background-color: white;
     padding: 50px;
     border-radius: 5px;
-    height: 90%;
+    height: 100%;
     width: 600px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+  }
+  .overlay-contents {
+    background-color: white;
+    padding: 50px;
+    border-radius: 5px;
+    height: 70%;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     justify-content: center;
     align-items: center;
   }
@@ -52,4 +65,11 @@
   }
   .padding-ov{
     padding: 20px;
+  }
+  .ui-icon{
+    width: 100%;
+    justify-content: center;
+  }
+  .ui-icon i{
+    padding: 0 5px;
   }

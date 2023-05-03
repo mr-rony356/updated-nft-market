@@ -20,17 +20,24 @@ function OverlayComponent() {
   const handleClick = () => {
     setShowOverlay(!showOverlay);
   }
+  const [showOverlayOne, setShowOverlayOne] = useState(false);
+
+  const handleClicks = () => {
+    setShowOverlayOne(!showOverlayOne);
+        setShowOverlay(false);
+
+  }
 
   return (
     <div>
       <div onClick={handleClick}>
-      <a
-                    
-                    className="mx-3 btn btn-pills btn-outline-primary"
-                  >
-                    {("createPool")}
-                  </a>
-</div>
+        <a
+
+          className="mx-3 btn btn-pills btn-outline-primary"
+        >
+          {("createPool")}
+        </a>
+      </div>
 
       {showOverlay && (
         <div className="overlay">
@@ -65,10 +72,10 @@ function OverlayComponent() {
 
               </div>
               <div className="mb-3">
-                <button className="btn btn-ui rounded-md w-100 mt-3" >
+                <button onClick={handleClicks} className="btn btn-ui rounded-md w-100 mt-3" >
                   CREATE POOL
-                </button> 
-                 <button onClick={handleClick} className="btn btn-ui-muted rounded-md w-100 mt-3" >
+                </button>
+                <button onClick={handleClick} className="btn btn-ui-muted rounded-md w-100 mt-3" >
                   Cancel
                 </button>
 
@@ -80,6 +87,50 @@ function OverlayComponent() {
           </div>
         </div>
       )}
+      {showOverlayOne && (
+
+        <div className="overlay">
+          <div className="overlay-contents">
+            <div className="row border-ui padding-ov">
+              <div className='text-center mb-3'>
+                <img src={girl} alt="girl" className="girl mb-3" />
+
+              </div>
+              <div className="ow mb-3">
+                <p className='md border-ui text-center bold-lg mb-3'>Your pool is complete & live now</p>
+
+              </div>
+              <div className="mb-3 text-center">
+                <span className='md border-ui text-center bold-lg mb-3 '> Pool ID</span>
+
+              </div>
+              <div className='d-flex text-center w-100 ui-icon '>
+              <i class=" uil-facebook-f"></i>
+                    <i class=" uil-instagram"></i>
+
+
+                    <i class=" uil-twitter"></i>
+                    <i class=" uil-copy-link"></i>
+
+              </div>
+
+
+              <div className="mb-3">
+                <button onClick={handleClicks} className="btn btn-ui rounded-md w-100 mt-3" >
+                  View  POOL
+                  listing
+                </button>
+
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      )}
+
     </div>
   );
 }
