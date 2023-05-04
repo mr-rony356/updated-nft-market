@@ -2,7 +2,6 @@ import { FiMail } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import useIsDesktop from "../hooks/useIsDesktop";
 import { useTranslation } from "react-i18next";
-import CustomOverlay from '../pages/CustomOverlay'
 import {
   bluechip,
   client05,
@@ -41,20 +40,19 @@ function RockpoolHome() {
                   (ERC721) listed at a fixed price on OpenSea.
                 </p>
 
-                <div className="mt-4 pt-2 d-flex">
-                  <div>
+                <div className="mt-4 pt-2">
                   <Link
                     to="/rockpool/pools"
                     className="btn btn-pills btn-primary"
                   >
                     {t("joinPools")}
                   </Link>
-
-                  </div>
-                  <div>
-                    <CustomOverlay></CustomOverlay>
-
-                  </div>
+                  <Link
+                    to="/rockpool/create"
+                    className="mx-3 btn btn-pills btn-outline-primary"
+                  >
+                    {t("createPool")}
+                  </Link>
                 </div>
               </div>
             </div>

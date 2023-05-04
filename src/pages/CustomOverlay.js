@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from "react-bootstrap";
 import '../pages/homestyle.css';
 import girl from '../assets/images/icons/girl.png';
 import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
@@ -31,12 +32,9 @@ function OverlayComponent() {
   return (
     <div>
       <div onClick={handleClick}>
-        <a
-
-          className="mx-3 btn btn-pills btn-outline-primary"
-        >
-          {("createPool")}
-        </a>
+      <Button className=" text-left d-block mb-4" variant="primary">
+            {("create pool")}
+            </Button>
       </div>
 
       {showOverlay && (
@@ -49,10 +47,10 @@ function OverlayComponent() {
               </div>
               <p className='md text-center'>Buy any NFT listed fixed price with the community</p>
               <input type="text" className="form-control input-font-ui input-number"
-                value={'0x37068cf3ff902f517b76fd0118ab40959880d808/245'} />
-              <p className='sm text-left '>Enter OpenSea listing at a fixed price.</p>
+                />
+              <p className='sm text-left  className="mb-3'>Enter OpenSea listing at a fixed price.</p>
 
-              <div className="mb-3">
+              <div >
                 <p className="md bold-lg text-left">Duration</p>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer
@@ -63,19 +61,19 @@ function OverlayComponent() {
                   </DemoContainer>
                 </LocalizationProvider>
               </div>
-              <div className="mb-3">
+              <div className='mb-3'>
                 <p className="text-left sm"> Description</p>
-                <div className="mb-3">
+                <div >
                   <Textarea className="border-ui" minRows={2} />
                 </div>
 
 
               </div>
-              <div className="mb-3">
-                <button onClick={handleClicks} className="btn btn-ui rounded-md w-100 mt-3" >
+              <div>
+                <button onClick={handleClicks} className="btn btn-ui rounded-md w-100 mb-3" >
                   CREATE POOL
                 </button>
-                <button onClick={handleClick} className="btn btn-ui-muted rounded-md w-100 mt-3" >
+                <button onClick={handleClick} className="btn btn-ui-muted rounded-md w-100" >
                   Cancel
                 </button>
 

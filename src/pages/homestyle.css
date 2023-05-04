@@ -33,14 +33,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
   
   .overlay-content {
     background-color: white;
     padding: 50px;
     border-radius: 5px;
-    height: 100%;
-    width: 600px;
+    height: 85%;
+    width: 500px;
     display: flex;
     flex-direction: column;
     overflow: hidden;

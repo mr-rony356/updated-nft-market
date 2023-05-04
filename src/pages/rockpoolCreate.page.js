@@ -1,6 +1,7 @@
 import { useState, useEffect,useCallback} from "react";
 import { IoIosWarning } from "react-icons/io";
 import { Contract, ethers, utils } from "ethers";
+import CustomOverlay from '../pages/CustomOverlay'
 import { Link } from "react-router-dom";
 import { item1, gif1, gif2, ethereum, iconGroup } from "../utils/images.util";
 import { getTokenBalance, JoinPool, CreatePool } from "../utils/contracts";
@@ -152,9 +153,7 @@ console.log(utils.formatBytes32String(type), Collection?.name == null ? Collecti
     <>
       <section className="bg-half-100 w-100 pb-0 mb-0">
         <div className="container">
-           <Button className=" text-left d-block mb-4" variant="primary">
-            {t("createPoolFromOpensea")}
-            </Button>
+          <CustomOverlay></CustomOverlay>
           <div className="row justify-content-center mt-1">
            
             <div className="col-lg-8 text-center">

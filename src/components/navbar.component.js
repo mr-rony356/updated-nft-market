@@ -6,6 +6,7 @@ import PreNav from "../pages/PreNav";
 import { BiCartAlt } from "react-icons/bi";
 import { GoLightBulb } from "react-icons/go";
 import Web3 from "web3";
+import BasicModal from '../pages/Modal'
 import { MdOutlineDarkMode } from "react-icons/md";
 import metamask from "../assets/images/svg/metamask.svg";
 import coinbase from "../assets/images/svg/coinbase.svg";
@@ -880,6 +881,10 @@ const Navbar = ({ nav, connectAccount }) => {
 												{t("createPool")}
 											</Link>
 										</li> */}
+                                          <li className="w-100  px-2 d-flex flex-column py-2">
+                        <BasicModal></BasicModal>
+                      </li>
+
                   </ul>
                 </li>
                 <li className="parent-parent-menu-item">
@@ -1158,6 +1163,10 @@ const Navbar = ({ nav, connectAccount }) => {
                         </div>
                       </Link>{" "}
                     </li>
+                    <li className="w-100  px-2 d-flex flex-column py-2">
+                        <BasicModal></BasicModal>
+                      </li>
+
                   </ul>
                 </li>
 
@@ -1377,6 +1386,10 @@ const Navbar = ({ nav, connectAccount }) => {
                         </div>
                       </Link>{" "}
                     </li>
+                    <li className="w-100  px-2 d-flex flex-column py-2">
+                        <BasicModal></BasicModal>
+                      </li>
+
                   </ul>
                 </li>
                 <li className="parent-parent-menu-item">
@@ -1651,6 +1664,9 @@ const Navbar = ({ nav, connectAccount }) => {
                             </div>
                           </div>
                         </Link>{" "}
+                      </li>
+                      <li className="w-100  px-2 d-flex flex-column py-2">
+                        <BasicModal></BasicModal>
                       </li>
                     </ul>
                   </li>

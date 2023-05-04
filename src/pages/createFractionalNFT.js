@@ -579,7 +579,8 @@ const CreateFractionalNFT = (props) => {
                 </div>}
               </div>
             </div>
-            {step === 2 && <div className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+            {step === 2 &&
+             <div className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
               <div className="p-4 bg-white rounded-md shadow-sm pb-5">
                 <div className="row mb-3">
                   <div className="col-md-6">
