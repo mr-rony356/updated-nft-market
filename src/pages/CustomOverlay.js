@@ -59,6 +59,20 @@ function OverlayComponent() {
     boxShadow: 24,
     p: 3,
     };
+    const styleS = {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: 550,
+      height: '70%',
+      borderRadius: '15px',
+      bgcolor: 'white',
+      //   border: '2px solid #000',
+      boxShadow: 24,
+      p: 3,
+    };
+  
       const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -183,7 +197,7 @@ function OverlayComponent() {
         }}
       >
         <Fade in={openOne} className="flex">
-          <Box sx={style}>
+          <Box sx={styleS}>
 
 
 <div className="row border-ui padding-ov">
@@ -262,7 +276,7 @@ function OverlayComponent() {
         }}
       >
         <Fade in={openTwo}>
-          <Box sx={style} className="flex">
+          <Box sx={styleS} className="flex">
 
         <div className="row border-ui padding-ov">
         <div className='text-right w-100'>  <CloseIcon className='close' onClick={handleCloseTwo} ></CloseIcon></div>
