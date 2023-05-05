@@ -5,6 +5,8 @@ import Modal from '@mui/material/Modal';
 import createPool from "../assets/images/8.png";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
+import mark from '../assets/images/icons/mark.png'
+import girl from '../assets/images/icons/girl.png';
 import { useWeb3React } from '@web3-react/core';
 import { useTranslation } from "react-i18next";
 import icon1 from "../assets/images/icons/3.png"
@@ -60,25 +62,59 @@ const Title = styled.span`
       font-weight: bold;
   `;
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 600,
-  height: '90%',
-  overflow: 'scroll',
-  borderRadius: '15px',
-  bgcolor: 'white',
-  //   border: '2px solid #000',
-  boxShadow: 24,
-  p: 3,
-};
-
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 600,
+    height: '90%',
+    overflow: 'scroll',
+    borderRadius: '15px',
+    bgcolor: 'white',
+    //   border: '2px solid #000',
+    boxShadow: 24,
+    p: 3,
+  };
+  const styleS = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 600,
+    height: '90%',
+    borderRadius: '15px',
+    bgcolor: 'white',
+    //   border: '2px solid #000',
+    boxShadow: 24,
+    p: 3,
+  };
+    
 export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [openOne, setOpenOne] = React.useState(false);
+  const handleOpenOne = () => {
+    handleClose();
+    setOpenOne(true);
+
+  };
+  const handleCloseOne = () => setOpenOne(false);
+
+
+  const [openTwo, setOpenTwo] = React.useState(false);
+  const handleOpenTwo = () => {
+    handleCloseOne();
+    setOpenTwo(true);
+
+  };
+  const handleCloseTwo = () => setOpenTwo(false);
+
+
+
+
+
   const [type2, setType2] = useState('auction');
   const [name2, setName2] = useState('');
   const [symbol2, setSymbol2] = useState('');
@@ -337,12 +373,128 @@ export default function BasicModal() {
 
             </div>
 
-            {step3 ? <button className="btn btn-ui rounded-md w-100 mt-3" >
+            <button onClick={handleOpenOne} className="btn btn-ui rounded-md w-100 mt-3" >
               CREATE POOL
-            </button> : <button className="btn btn-ui rounded-md w-100 mt-3" style={{ cursor: 'no-drop' }}>
-              CREATE POOL
-            </button>}
+         
+            </button>
           </div>
+        </Box>
+      </Modal>
+      <Modal
+        open={openOne}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={styleS} className="flex">
+          <div className="row border-ui padding-ov">
+  <div className=' row d-flex  justify-content-between mb-3'> 
+    <div className='col-md-6'>
+    <p className='font-ui-cl' >APPROVE CROWDSALE</p>
+
+    </div>
+    <div className='col-md-6  mb-3 text-right'>  <CloseIcon className='close' onClick={handleCloseOne} ></CloseIcon></div>
+
+  </div>
+
+  <div className="row mb-3  justify-content-between">
+              <div className="col-md-8">
+                <div className="d-flex">
+                  <div>
+                    <a>
+                      <img src={'https://i.seadn.io/gcs/files/6ad18b0e2c45c7f1eda6be028f3d931a.png?auto=format&w=1000'}alt="nft image" style={{ width: '60px', borderRadius: '10px' , margin:'10px' }} />
+                    </a>
+
+                  </div>
+                  <div className="text-center m-t">
+                    <p className="md bold-lg">Kidzoki#257</p>
+                    <p className="sm bold-md">kidzoki Georil</p>
+                    <p className="sm">rarity #124 </p>
+
+
+                  </div>
+
+
+
+                </div>
+              </div>
+
+
+              <div className="col-md-4 text-right">
+              <p className="md ">3 ETH</p>
+
+              <p className="sm">7 days duration</p>
+                <p className="sm">$5764 USD</p>
+                <p className='sm'> Total 100 Shares</p>
+              </div>
+            </div>
+            <hr />
+  <div className='mb-3'>
+    <p className='bold-md'>Go to your wallet
+</p>
+<p className='sm'>You'll be asked to approve this pool from your wallet.</p>
+  </div>
+
+
+  <div className="mb-3">
+    <button onClick={handleOpenTwo} className="btn btn-ui w-100 mt-3" >
+     Approve
+    </button>
+
+
+  </div>
+
+
+</div>
+
+        </Box>
+      </Modal>
+      <Modal
+        open={openTwo}
+        onClose={handleCloseTwo}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={styleS} className="flex">
+          <div className="row border-ui padding-ov">
+        <div className='text-right w-100'>  <CloseIcon className='close' onClick={handleCloseTwo} ></CloseIcon></div>
+
+          <p className='text-center md-lg bold-md mb-3'>Congratulations!</p>
+          <div className='text-center mb-3'>
+            <img src={girl} alt="girl" className="girl mb-3" />
+
+          </div>
+          <div className="ow mb-3">
+            <p className='md  text-center bold-lg mb-3 '> <span><img src={mark} width={30} alt="" /></span> Your pool is complete & live now</p>
+
+          </div>
+          <div className="mb-3 text-center">
+            <span className='md border-ui text-center bold-lg mb-3 '> Pool ID</span>
+
+          </div>
+          <div className='d-flex text-center w-100 ui-icon '>
+          <i class=" uil-facebook-f"></i>
+                <i class=" uil-instagram"></i>
+
+
+                <i class=" uil-twitter"></i>
+                <i class=" uil-copy-link"></i>
+
+          </div>
+
+
+          <div className="mb-3">
+            <button onClick={handleCloseTwo} className="btn btn-ui rounded-md w-100 mt-3" >
+              View  POOL
+              listing
+            </button>
+
+
+          </div>
+
+
+        </div>
+
         </Box>
       </Modal>
     </div>

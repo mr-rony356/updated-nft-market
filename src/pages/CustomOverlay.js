@@ -55,7 +55,7 @@ function OverlayComponent() {
     height: '90%',
     borderRadius: '15px',
     bgcolor: 'white',
-    //   border: '2px solid #000',
+      border: '2px solid #fff',
     boxShadow: 24,
     p: 3,
     };
@@ -111,7 +111,7 @@ function OverlayComponent() {
         }}
       >
         <Fade in={open}>
-          <Box sx={style}>
+          <Box sx={style} className="flex">
 
 <div className="overlay-content">
 
@@ -165,52 +165,7 @@ function OverlayComponent() {
 
   </div>
 </div>
-{ openOne && (
-        <div className="overlay-contents">
-        <div className="row border-ui padding-ov">
-        <div className='text-right w-100'>  <CloseIcon className='close' onClick={handleClicks} ></CloseIcon></div>
-
-          <p className='text-center md-lg bold-md mb-3'>Congratulations!</p>
-          <div className='text-center mb-3'>
-            <img src={girl} alt="girl" className="girl mb-3" />
-
-          </div>
-          <div className="ow mb-3">
-            <p className='md  text-center bold-lg mb-3 '> <span><img src={mark} width={30} alt="" /></span> Your pool is complete & live now</p>
-
-          </div>
-          <div className="mb-3 text-center">
-            <span className='md border-ui text-center bold-lg mb-3 '> Pool ID</span>
-
-          </div>
-          <div className='d-flex text-center w-100 ui-icon '>
-          <i class=" uil-facebook-f"></i>
-                <i class=" uil-instagram"></i>
-
-
-                <i class=" uil-twitter"></i>
-                <i class=" uil-copy-link"></i>
-
-          </div>
-
-
-          <div className="mb-3">
-            <button onClick={open} className="btn btn-ui rounded-md w-100 mt-3" >
-              View  POOL
-              listing
-            </button>
-
-
-          </div>
-
-
-        </div>
-      </div>
-
-
-)
    
-}
 </Box>
         </Fade>
       </Modal>
