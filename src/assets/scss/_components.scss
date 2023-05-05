@@ -965,6 +965,9 @@ p{
   font-size: 25px;
 
 }
+.font-ui-cl{
+  color: #5271FF;
+}
 .ui-font{
   color:#5271FF ;
   margin: 0;
@@ -976,10 +979,20 @@ p{
   border-left: 1px solid black;
 }
 .text-right{
-  text-align: r;
+  text-align: right;
 }
 .padding{
   padding: 0 10px  !important;
+}
+.close{
+  cursor: pointer;
+
+}
+.m-t{
+  margin-top: 10PX;
+}
+.md-lg{
+font-size: 20px;
 }
 .padding-lg{
   padding:  10px  !important;

@@ -11,6 +11,8 @@ import icon1 from "../assets/images/icons/3.png"
 import icon2 from "../assets/images/icons/1.png"
 import icon3 from "../assets/images/icons/6.png"
 import Input from '@mui/material/Input';
+import CloseIcon from '@mui/icons-material/Close';
+import IosShareIcon from '@mui/icons-material/IosShare';
 import "../components/styles/NFTStyles.css";
 import "react-datepicker/dist/react-datepicker.css";
 import TextField from '@mui/material/TextField';
@@ -150,9 +152,14 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-        <div>
+        <div className='text-right mb-3'><IosShareIcon fontSize="small" color="action"></IosShareIcon>   <CloseIcon  className="close" onClick={handleClose}></CloseIcon> </div>
+
+        <div className=" max-width text-center">
+
                 <div className="row mb-3">
+
                   <div className="col-md-6">
+
                     <button className={`btn ${type2 === 'fixed' ? 'btn-ui' : 'btn-ui-muted'}  w-100 mt-3`}
                       style={{ fontSize: 14 }}
                       onClick={() => setType2('fixed')}
