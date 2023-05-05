@@ -22,7 +22,7 @@
         /* margin-top: 30px; */
     }
 }
-.overlay {
+/* .overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -58,7 +58,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+  } */
   .girl{
     height: 140px;
     width: 140px;
@@ -82,4 +82,10 @@
     text-align: start;
     margin: 10px 0;
     vertical-align: top;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px !important;
 }
