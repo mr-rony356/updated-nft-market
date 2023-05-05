@@ -397,7 +397,7 @@ export default function BasicModal() {
 
   </div>
 
-  <div className="row mb-3  justify-content-between">
+  <div className="row mb-3  justify-content-between min-height">
               <div className="col-md-8">
                 <div className="d-flex">
                   <div>
@@ -420,7 +420,7 @@ export default function BasicModal() {
               </div>
 
 
-              <div className="col-md-4 text-right">
+              <div className="col-md-4 text-right mb-3">
               <p className="md ">3 ETH</p>
 
               <p className="sm">7 days duration</p>
@@ -428,16 +428,16 @@ export default function BasicModal() {
                 <p className='sm'> Total 100 Shares</p>
               </div>
             </div>
-            <hr />
-  <div className='mb-3'>
-    <p className='bold-md'>Go to your wallet
+            <hr className="mb-3" />
+  <div className='mb-3 mb-5 mt-all'>
+    <p className='bold-md '>Go to your wallet
 </p>
-<p className='sm'>You'll be asked to approve this pool from your wallet.</p>
+<p className='sm '>You'll be asked to approve this pool from your wallet.</p>
   </div>
 
 
   <div className="mb-3">
-    <button onClick={handleOpenTwo} className="btn btn-ui w-100 mt-3" >
+    <button onClick={handleOpenTwo} className="btn btn-ui w-100 mb-3" >
      Approve
     </button>
 

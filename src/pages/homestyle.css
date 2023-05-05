@@ -89,3 +89,10 @@
   align-items: center;
   padding: 40px !important;
 }
+.mt-all{
+
+  margin-bottom: 50px !important;
+}
+.min-height{
+  min-height: auto;
+}

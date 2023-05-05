@@ -51,13 +51,26 @@ function OverlayComponent() {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 550,
+    width: 530,
     height: '90%',
     borderRadius: '15px',
     bgcolor: 'white',
       border: '2px solid #fff',
     boxShadow: 24,
     p: 3,
+    };
+    const styleone = {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: 530,
+      height: '65%',
+      borderRadius: '15px',
+      bgcolor: 'white',
+      //   border: '2px solid #000',
+      boxShadow: 24,
+      p: 3,
     };
     const styleS = {
       position: 'absolute',
@@ -130,7 +143,7 @@ function OverlayComponent() {
 <div className="overlay-content">
 
 
-  <div className="row border-ui padding-ov">
+  <div className="row mb-3 padding-ov">
   <div className='text-right w-100'>  <CloseIcon className='close' onClick={handleClose} ></CloseIcon></div>
 
 
@@ -138,13 +151,16 @@ function OverlayComponent() {
       <img src={girl} alt="girl" className="girl" />
 
     </div>
+    <div className='mb-3'> 
     <p className='md text-center'>Buy any NFT listed fixed price with the community</p>
     <input type="text" className="form-control input-font-ui input-number"
       />
-    <p className='sm text-left  className="mb-3'>Enter OpenSea listing at a fixed price.</p>
+    <p className='sm text-left  className="mb-5'>Enter OpenSea listing at a fixed price.</p>
 
-    <div >
-      <p className="md bold-lg text-left">Duration</p>
+    </div>
+
+    <div className='mb-3' >
+      <p className="md bold-lg text-left ">Duration</p>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DemoContainer components={['DatePicker', 'DatePicker']}>
           <DatePicker label="Start" defaultValue={dayjs('2022-04-17')} />
@@ -158,17 +174,17 @@ function OverlayComponent() {
     </div>
     <div className='mb-3'>
       <p className="text-left sm">Description</p>
-      <div >
+      <div className='mb-3'>
         <Textarea className="border-ui"minRows={2} />
       </div>
 
 
     </div>
     <div>
-      <button onClick={handleOpenOne} className="btn btn-ui rounded-md w-100 mb-3" >
+      <button onClick={handleOpenOne} className="btn btn-ui rounded-md w-100 mb-4 mb-3" >
         CREATE POOL
       </button>
-      <button  className="btn btn-ui-muted rounded-md w-100" >
+      <button  className="btn btn-ui-muted rounded-md w-100 mb-3" >
         Cancel
       </button>
 
