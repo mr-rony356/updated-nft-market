@@ -151,8 +151,8 @@ export default function SpecificPoolComponent({ chainId, specificPoolId }) {
       okText: "Add funds",
       cancelText: "Cancel",
       onOk:  async () => handleJoin(),
-      cancelButtonProps: { style: { width: "100%", padding: "5px" } },
-      okButtonProps: { style: { width: "100%", padding: "5px" } },
+      cancelButtonProps: { style: { width: "100%", padding: "5px", margin:'10px' } },
+      okButtonProps: { style: { width: "100%", padding: "5px",margin:'10px' } },
     });
   };
 
@@ -174,8 +174,8 @@ export default function SpecificPoolComponent({ chainId, specificPoolId }) {
 
   const handleUseMax = () => {
     const maxValue = maxValueDeposit.gt(new BigNumber(balance))
-      ? new BigNumber(balance).toString()
-      : maxValueDeposit.toString();
+      ? 10
+      : 10;
     setDepositAmount(maxValue);
   };
 
@@ -417,7 +417,7 @@ const fetchPrice =async()=>{
                 </div>
               </div>
               <Input
-          type='number'
+          type='number' className="pd-all"
           onChange={e => setAmount(e.target.value)}
           value={amount}
           addonBefore={'ETH'}

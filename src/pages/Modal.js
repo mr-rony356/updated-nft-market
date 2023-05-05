@@ -9,6 +9,7 @@ import { useWeb3React } from '@web3-react/core';
 import { useTranslation } from "react-i18next";
 import icon1 from "../assets/images/icons/3.png"
 import icon2 from "../assets/images/icons/1.png"
+import OutlinedInput from '@mui/material/OutlinedInput';
 import icon3 from "../assets/images/icons/6.png"
 import Input from '@mui/material/Input';
 import CloseIcon from '@mui/icons-material/Close';
@@ -21,6 +22,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Checkbox from '@mui/material/Checkbox';
+import dayjs from 'dayjs';
 import Typography from '@mui/material/Typography';
 import Slider from '@mui/material/Slider';
 import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
@@ -29,27 +31,27 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 const marks = [
-    {
-      value: 0,
-      label: '0%',
-    },
-    {
-      value: 10,
-      label: '10%',
-    },
-    {
-      value: 20,
-      label: '20%',
-    }
-  ];
-  
-  
-  function valuetext(value) {
-    return `${value}%`;
+  {
+    value: 0,
+    label: '0%',
+  },
+  {
+    value: 10,
+    label: '10%',
+  },
+  {
+    value: 20,
+    label: '20%',
   }
-  
-  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-  const Title = styled.span`
+];
+
+
+function valuetext(value) {
+  return `${value}%`;
+}
+
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+const Title = styled.span`
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -57,18 +59,18 @@ const marks = [
       display: inline-block;
       font-weight: bold;
   `;
-  
+
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-  height:'90%',
-  overflow:'scroll',
-  borderRadius:'15px',
+  height: '90%',
+  overflow: 'scroll',
+  borderRadius: '15px',
   bgcolor: 'white',
-//   border: '2px solid #000',
+  //   border: '2px solid #000',
   boxShadow: 24,
   p: 3,
 };
@@ -127,23 +129,25 @@ export default function BasicModal() {
     f_data.type = type2;
     sessionStorage.setItem('f_marketplace', JSON.stringify(f_data));
   }, [type2, name2, symbol2, price2, supply2, selectedItem]);
+  const [value, setValue] = React.useState(dayjs('2022-04-17'));
+
 
   return (
     <div>
       <div onClick={handleOpen} className="d-flex align-items-center gap-2">
-                            <img width={30} src={createPool} alt="" />
-                            <div>
-                              <p className="text-text">
-                                {("Crowdsale")}
-                              </p>
-                              <div
-                                className="subtitle"
-                                style={{ fontSize: "12px" }}
-                              >
-                                {("Crowdsale")}
-                              </div>
-                            </div>
-                          </div>
+        <img width={30} src={createPool} alt="" />
+        <div>
+          <p className="text-text">
+            {("Crowdsale")}
+          </p>
+          <div
+            className="subtitle"
+            style={{ fontSize: "12px" }}
+          >
+            {("Crowdsale")}
+          </div>
+        </div>
+      </div>
 
       <Modal
         open={open}
@@ -152,194 +156,193 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-        <div className='text-right mb-3'><IosShareIcon fontSize="small" color="action"></IosShareIcon>   <CloseIcon  className="close" onClick={handleClose}></CloseIcon> </div>
+          <div className='text-right mb-3'><IosShareIcon fontSize="small" color="action"></IosShareIcon>   <CloseIcon className="close" onClick={handleClose}></CloseIcon> </div>
 
-        <div className=" max-width text-center">
+          <div className=" max-width text-center">
 
-                <div className="row mb-3">
+            <div className="row mb-3">
 
-                  <div className="col-md-6">
+              <div className="col-md-6">
 
-                    <button className={`btn ${type2 === 'fixed' ? 'btn-ui' : 'btn-ui-muted'}  w-100 mt-3`}
-                      style={{ fontSize: 14 }}
-                      onClick={() => setType2('fixed')}
-                    >
-                      Fixed Price
+                <button className={`btn ${type2 === 'fixed' ? 'btn-ui' : 'btn-ui-muted'}  w-100 mt-3`}
+                  style={{ fontSize: 14 }}
+                  onClick={() => setType2('fixed')}
+                >
+                  Fixed Price
 
-                    </button>
+                </button>
+              </div>
+              <div className="col-md-6">
+                <button
+                  className={`btn ${type2 === 'auction' ? 'btn-ui' : 'btn-ui-muted'}  w-100 mt-3`}
+                  style={{ fontSize: 16 }}
+                  onClick={() => setType2('auction')}
+                >
+                  Bid/Auction
+
+                </button>
+              </div>
+            </div>
+
+
+            <div className="row mb-3 row justify-content-between">
+              <div className="col-md-6">
+                <div className="d-flex">
+                  <div>
+                    <Link to={`/`}>
+                      <img src={'https://i.seadn.io/gcs/files/6ad18b0e2c45c7f1eda6be028f3d931a.png?auto=format&w=1000'} className="img-fluid" alt="nft image" style={{ width: '50%', borderRadius: '10px' }} />
+                    </Link>,
+
                   </div>
-                  <div className="col-md-6">
-                    <button
-                      className={`btn ${type2 === 'auction' ? 'btn-ui' : 'btn-ui-muted'}  w-100 mt-3`}
-                      style={{ fontSize: 16 }}
-                      onClick={() => setType2('auction')}
-                    >
-                      Bid/Auction
+                  <div className="text-left">
+                    <p className="md bold-lg">Kidzoki#257</p>
+                    <p className="sm bold-md">kidzoki Georil</p>
+                    <p className="sm">rarity #124 </p>
 
-                    </button>
+
                   </div>
+
+
+
                 </div>
-
-
-                <div className="row mb-3 row justify-content-between">
-                  <div className="col-md-6">
-                    <div className="d-flex">
-                      <div>
-                        <Link to={`/`}>
-                          <img src={'https://i.seadn.io/gcs/files/6ad18b0e2c45c7f1eda6be028f3d931a.png?auto=format&w=1000'} className="img-fluid" alt="nft image" style={{ width: '50%', borderRadius: '10px' }} />
-                        </Link>,
-
-                      </div>
-                      <div className="text-left">
-                        <p className="md bold-lg">Kidzoki#257</p>
-                        <p className="sm bold-md">kidzoki Georil</p>
-                        <p className="sm">rarity #124 </p>
-
-
-                      </div>
-
-
-
-                    </div>
-                  </div>
-                  {/* <label className="form-label">Vault NFTs</label>
+              </div>
+              {/* <label className="form-label">Vault NFTs</label>
                     <input type="text" className="form-control" placeholder="Vault name"
                       value={name2} onChange={event => setName2(event.target.value)} /> */}
 
 
-                  <div className="col-md-3">
-                    <p className="sm">Listing Price</p>
+              <div className="col-md-3">
+                <p className="sm">Listing Price</p>
 
-                    <p className="md bold-lg">3 ETH</p>
-                    <p className="sm">$5764 USD</p>
-                  </div>
-                </div>
-                <div className="mb-3">
-                  {/* <label className="form-label">Token & Price</label>
+                <p className="md bold-lg">3 ETH</p>
+                <p className="sm">$5764 USD</p>
+              </div>
+            </div>
+            <div className="mb-3">
+              {/* <label className="form-label">Token & Price</label>
                   <input type="number" className="form-control input-number" placeholder={`Reserve price in ${process.env.REACT_APP_COIN}`}
                     value={price2} onChange={event => setPrice2(event.target.value)} /> */}
-                  <div className="border-ui">
-                    <p className="lg ui-font text-center">$5764.68 USD</p>
+              <div className="border-ui">
+                <p className="lg ui-font text-center">$5764.68 USD</p>
 
-                  </div>
-
-                </div>
-                <div className=" mb-3">
-                  <p className="text-left">*Set a price</p>
-                  <div className="row mb-3">
-
-                    <div className="col-md-6">
-                      <input type="text" className="form-control input-font-ui input-number" placeholder="Token supply"
-                        value={'Floor 3ETH'} onChange={event => setSupply2(event.target.value)} />
-                    </div>
-                    <div className="col-md-6">
-                      <input type="text" className="form-control input-font-ui" placeholder="Token symbol"
-                        value={'Top Trait 2.5ETH'} onChange={event => setSymbol2(event.target.value)} />
-                    </div>
-                  </div>
-                  </div>
-
-                  <div className="mb-3">
-                    <FormControl className="border-ui padding" fullWidth >
-                      <Input
-                        id="outlined-adornment-amount" value={3}
-                        endAdornment={<InputAdornment className="bd-left lg bold-lg input-font" position="end">ETH</InputAdornment>}
-                        aria-describedby="standard-weight-helper-text" placeholder="3"
-                        inputProps={{
-                          'aria-label': 'weight',
-                        }}
-                      />
-                    </FormControl>
-                    <FormHelperText id="standard-weight-helper-text">$5764.68 USD</FormHelperText>
-
-                  </div>
-                <div className=" border-ui mb-3">
-                  <div className="row">
-                    <div className="col-md-4 text-center">
-                      <span className="sm "><img src={icon1} height={20} alt="" />Set Fractionalize shares </span>
-                      <input type="text" className="form-control padding border-ui  input-font-ui"
-                        value={100} />
-                      <p className="sm">Upto 100,000,000 max</p>
-                    </div>
-                    <div className="col-md-4">
-                      <span className="sm "><img src={icon2} height={20} alt="" />Set Price for shares </span>
-                      <input type="text" className="form-control padding border-ui  input-font-ui"
-                        value={'$50'} />
-                      <p className="sm">.25</p>
-                    </div>
-                    <div className="col-md-4">
-                      <span className="sm "><img src={icon3} height={20} alt="" />Token name </span>
-                      <input type="text" className="form-control padding border-ui  input-font-ui"
-                        value={'Kidzuki'} />
-                    </div>
-
-                  </div>
-
-
-                </div>
-                {type2 === 'auction' && <>
-                  <div className="mb-3">
-                    <p className="md bold-lg text-left">Duration</p>
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DemoContainer
-                        components={['DatePicker', 'DateTimePicker', 'DateRangePicker']}
-                      >
-                        <DatePicker />
-
-                      </DemoContainer>
-                    </LocalizationProvider>
-                  </div>
-                  <div className="mb-3">
-                    <p className="text-left sm"> Description</p>
-                    <div className="mb-3">
-                      <Textarea className="border-ui" minRows={2} />
-                    </div>
-                    <p className="text-left sm "><Checkbox size="small" /> Private pool (Not listed on marketplace)</p>
-
-
-                  </div>
-
-
-                </>}
-                {type2 === 'fixed' && <>
-                  <div className="mb-3">
-                    <p className="text-left sm "> Description</p>
-                    <Textarea className="border-ui" minRows={3} />
-                                      
-                    <p className="text-left sm "><Checkbox size="small" /> Private pool (Not listed on marketplace)</p>
-
-                  </div>
-
-
-                </>
-
-
-                }
-                <div className="mb-3">
-                <Box sx={{ width: 500 }}>
-                  <Typography id="track-inverted-slider" className="text-left md" gutterBottom>
-                    Creator Fees
-                  </Typography>
-                  <Slider
-                    aria-label="Custom marks"
-                    defaultValue={1}
-                    getAriaValueText={valuetext}
-                    step={1}
-                    size="small"
-                    valueLabelDisplay="auto"
-                     min={1} max={20}
-                    marks={marks}></Slider>
-                </Box>
-
-
-                </div>
-
-                {step3 ? <button className="btn btn-ui rounded-md w-100 mt-3" >
-                  CREATE POOL
-                </button> : <button className="btn btn-ui rounded-md w-100 mt-3" style={{ cursor: 'no-drop' }}>
-                  CREATE POOL
-                </button>}
               </div>
+
+            </div>
+            <div className=" mb-3">
+              <p className="text-left">*Set a price</p>
+              <div className="row mb-3">
+
+                <div className="col-md-6">
+                  <input type="text" className="form-control input-font-ui input-number" placeholder="Token supply"
+                    value={'Floor 3ETH'} onChange={event => setSupply2(event.target.value)} />
+                </div>
+                <div className="col-md-6">
+                  <input type="text" className="form-control input-font-ui" placeholder="Token symbol"
+                    value={'Top Trait 2.5ETH'} onChange={event => setSymbol2(event.target.value)} />
+                </div>
+              </div>
+            </div>
+
+            <FormControl className=" " fullWidth >
+              <OutlinedInput
+                id="outlined-adornment-weight" value={3} size="small"
+                endAdornment={<InputAdornment position="end">ETH</InputAdornment>}
+                aria-describedby="outlined-weight-helper-text"
+                inputProps={{
+                  'aria-label': 'weight',
+                }}
+              />                    </FormControl>
+            <FormHelperText id="standard-weight-helper-text">$5764.68 USD</FormHelperText>
+
+            <div className=" border-ui mb-3">
+              <div className="row">
+                <div className="col-md-4 text-center">
+                  <span className="sm "><img src={icon1} height={20} alt="" />Set Fractionalize shares </span>
+                  <input type="text" className="form-control padding border-ui  input-font-ui"
+                    value={100} />
+                  <p className="sm">Upto 100,000,000 max</p>
+                </div>
+                <div className="col-md-4">
+                  <span className="sm "><img src={icon2} height={20} alt="" />Set Price for shares </span>
+                  <input type="text" className="form-control padding border-ui  input-font-ui"
+                    value={'$50'} />
+                  <p className="sm">.25</p>
+                </div>
+                <div className="col-md-4">
+                  <span className="sm "><img src={icon3} height={20} alt="" />Token name </span>
+                  <input type="text" className="form-control padding border-ui  input-font-ui"
+                    value={'Kidzuki'} />
+                </div>
+
+              </div>
+
+
+            </div>
+            {type2 === 'auction' && <>
+              <div className="mb-3">
+                <p className="md bold-lg text-left">Duration</p>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={['DatePicker', 'DatePicker']}>
+                    <DatePicker label="Start" defaultValue={dayjs('2022-04-17')} />
+                    <DatePicker
+                      label="End"
+                      value={value}
+                      onChange={(newValue) => setValue(newValue)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>  
+                                </div>
+              <div className="mb-3">
+                <p className="text-left sm"> Description</p>
+                <div className="mb-3">
+                  <Textarea className="border-ui" minRows={2} />
+                </div>
+                <p className="text-left sm "><Checkbox size="small" /> Private pool (Not listed on marketplace)</p>
+
+
+              </div>
+
+
+            </>}
+            {type2 === 'fixed' && <>
+              <div className="mb-3">
+                <p className="text-left sm "> Description</p>
+                <Textarea className="border-ui" minRows={3} />
+
+                <p className="text-left sm "><Checkbox size="small" /> Private pool (Not listed on marketplace)</p>
+
+              </div>
+
+
+            </>
+
+
+            }
+            <div className="mb-3">
+              <Box sx={{ width: 500 }}>
+                <Typography id="track-inverted-slider" className="text-left md" gutterBottom>
+                  Creator Fees
+                </Typography>
+                <Slider
+                  aria-label="Custom marks"
+                  defaultValue={8}
+                  getAriaValueText={valuetext}
+                  step={1}
+                  size="small"
+                  valueLabelDisplay="auto"
+                  min={1} max={20}
+                  marks={marks}></Slider>
+              </Box>
+
+
+            </div>
+
+            {step3 ? <button className="btn btn-ui rounded-md w-100 mt-3" >
+              CREATE POOL
+            </button> : <button className="btn btn-ui rounded-md w-100 mt-3" style={{ cursor: 'no-drop' }}>
+              CREATE POOL
+            </button>}
+          </div>
         </Box>
       </Modal>
     </div>

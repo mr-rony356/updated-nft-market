@@ -56,7 +56,6 @@
     width: 500px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     justify-content: center;
     align-items: center;
   }
@@ -74,3 +73,13 @@
   .ui-icon i{
     padding: 0 5px;
   }
+  .pd-all{
+    margin: 10px 0;
+  }
+.ant-input-group-wrapper {
+    display: inline-block;
+    width: 100%;
+    text-align: start;
+    margin: 10px 0;
+    vertical-align: top;
+}

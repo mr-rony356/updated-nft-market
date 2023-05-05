@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from "react-bootstrap";
+import createPool from "../assets/images/8.png";
 import '../pages/homestyle.css';
 import mark from '../assets/images/icons/mark.png'
 import girl from '../assets/images/icons/girl.png';
@@ -39,13 +40,24 @@ function OverlayComponent() {
         setShowOverlay(false);
 
   }
+  const [value, setValue] = React.useState(dayjs('2022-04-17'));
+
 
   return (
     <div>
-      <div onClick={handleClick}>
-      <Button className=" text-left d-block mb-4" variant="primary">
-            {("create pool")}
-            </Button>
+      <div onClick={handleClick} className="d-flex align-items-center gap-2">
+                            <img width={30} src={createPool} alt="" />
+                            <div>
+                              <p className="text-text">
+                                {("Create Pool")}
+                              </p>
+                              <div
+                                className="subtitle"
+                                style={{ fontSize: "12px" }}
+                              >
+                                {("Create Pool")}
+                              </div>
+                            </div>
       </div>
 
       {showOverlay && (
@@ -53,7 +65,10 @@ function OverlayComponent() {
           
           <div className="overlay-content">
             
+            
             <div className="row border-ui padding-ov">
+            <div className='text-right w-100'>  <CloseIcon className='close' onClick={handleClick} ></CloseIcon></div>
+
 
               <div className='text-center'>
                 <img src={girl} alt="girl" className="girl" />
@@ -67,18 +82,20 @@ function OverlayComponent() {
               <div >
                 <p className="md bold-lg text-left">Duration</p>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer
-                    components={['DatePicker', 'DateTimePicker', 'DateRangePicker']}
-                  >
-                    <DatePicker />
-
+                  <DemoContainer components={['DatePicker', 'DatePicker']}>
+                    <DatePicker label="Start" defaultValue={dayjs('2022-04-17')} />
+                    <DatePicker
+                      label="End"
+                      value={value}
+                      onChange={(newValue) => setValue(newValue)}
+                    />
                   </DemoContainer>
-                </LocalizationProvider>
+                </LocalizationProvider>  
               </div>
               <div className='mb-3'>
-                <p className="text-left sm"> Description</p>
+                <p className="text-left sm">Description</p>
                 <div >
-                  <Textarea className="border-ui" minRows={2} />
+                  <Textarea className="border-ui"minRows={2} />
                 </div>
 
 

@@ -7,6 +7,7 @@ import { BiCartAlt } from "react-icons/bi";
 import { GoLightBulb } from "react-icons/go";
 import Web3 from "web3";
 import BasicModal from '../pages/Modal'
+import CustomOverlay from '../pages/CustomOverlay'
 import { MdOutlineDarkMode } from "react-icons/md";
 import metamask from "../assets/images/svg/metamask.svg";
 import coinbase from "../assets/images/svg/coinbase.svg";
@@ -825,23 +826,7 @@ const Navbar = ({ nav, connectAccount }) => {
                       </Link>{" "}
                     </li>
                     <li className="w-100  px-2 d-flex flex-column py-2">
-                      <Link
-                        to="/rockpool/create"
-                        onClick={() => setActive("hot")}
-                      >
-                        <div className="d-flex align-items-center gap-2">
-                          <img width={30} src={createPool} alt="" />
-                          <div>
-                            <p className="text-text"> {t("createPool")}</p>
-                            <div
-                              className="subtitle"
-                              style={{ fontSize: "12px" }}
-                            >
-                              {t("createPool")}
-                            </div>
-                          </div>
-                        </div>
-                      </Link>{" "}
+                    <CustomOverlay></CustomOverlay>
                     </li>
                     <li className="w-100  px-2 d-flex flex-column py-2">
                       <Link
@@ -1123,24 +1108,7 @@ const Navbar = ({ nav, connectAccount }) => {
                       </Link>{" "}
                     </li>
                     <li className="w-100  px-2 d-flex flex-column py-2">
-                      <Link
-                        to="/rockpool/create"
-                        onClick={() => setActive("hot")}
-                      >
-                        <div className="d-flex align-items-center gap-2">
-                          <img width={30} src={createPool} alt="" />
-                          <div>
-                            <p className="text-text"> {t("createPool")}</p>
-                            <div
-                              className="subtitle"
-                              style={{ fontSize: "12px" }}
-                            >
-                              {t("createPool")}
-                            </div>
-                          </div>
-                        </div>
-                      </Link>{" "}
-                    </li>
+<CustomOverlay></CustomOverlay>                    </li>
                     <li className="w-100  px-2 d-flex flex-column py-2">
                       <Link
                         to="/marketplace/create"
@@ -1346,24 +1314,7 @@ const Navbar = ({ nav, connectAccount }) => {
                       </Link>{" "}
                     </li>
                     <li className="w-100  px-2 d-flex flex-column py-2">
-                      <Link
-                        to="/rockpool/create"
-                        onClick={() => setActive("hot")}
-                      >
-                        <div className="d-flex align-items-center gap-2">
-                          <img width={30} src={createPool} alt="" />
-                          <div>
-                            <p className="text-text"> {t("createPool")}</p>
-                            <div
-                              className="subtitle"
-                              style={{ fontSize: "12px" }}
-                            >
-                              {t("createPool")}
-                            </div>
-                          </div>
-                        </div>
-                      </Link>{" "}
-                    </li>
+<CustomOverlay></CustomOverlay>                    </li>
                     <li className="w-100  px-2 d-flex flex-column py-2">
                       <Link
                         to="/marketplace/create"
@@ -1625,23 +1576,7 @@ const Navbar = ({ nav, connectAccount }) => {
                         </Link>{" "}
                       </li>
                       <li className="w-100  px-2 d-flex flex-column py-2">
-                        <Link
-                          to="/rockpool/create"
-                          onClick={() => setActive("hot")}
-                        >
-                          <div className="d-flex align-items-center gap-2">
-                            <img width={30} src={createPool} alt="" />
-                            <div>
-                              <p className="text-text"> {t("createPool")}</p>
-                              <div
-                                className="subtitle"
-                                style={{ fontSize: "12px" }}
-                              >
-                                {t("createPool")}
-                              </div>
-                            </div>
-                          </div>
-                        </Link>{" "}
+                        <CustomOverlay></CustomOverlay>
                       </li>
                       <li className="w-100  px-2 d-flex flex-column py-2">
                         <Link
